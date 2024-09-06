@@ -6,7 +6,6 @@ from streamlit_gsheets import GSheetsConnection
 
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
-df1 = conn.read(worksheet="Productos")
 
 # Initialize session state
 if 'df2' not in st.session_state:
