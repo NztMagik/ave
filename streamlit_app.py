@@ -4,20 +4,9 @@ import streamlit as st
 import pandas as pd
 from streamlit_gsheets import GSheetsConnection
 
-# Load secrets from secrets.toml
-spreadsheet_url = st.secrets["connections.gsheets"]["spreadsheet"]
-private_key = st.secrets["connections.gsheets"]["private_key"]
-client_email = st.secrets["connections.gsheets"]["client_email"]
-project_id = st.secrets["connections.gsheets"]["project_id"]
-
 # Create a connection object.
-conn = GSheetsConnection(
-    private_key=private_key,
-    client_email=client_email,
-    project_id=project_id,
-    spreadsheet_url=spreadsheet_url
-)
-#conn = st.connection("gsheets", type=GSheetsConnection)
+conn = st.connection("gsheets", type=GSheetsConnection)
+#df1 = conn.read(worksheet="Productos")
 
 # Initialize session state
 if 'df2' not in st.session_state:
