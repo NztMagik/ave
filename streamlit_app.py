@@ -14,7 +14,7 @@ if 'df2' not in st.session_state:
 
 # Prueba agarrar mail
 st.write(st.experimental_user.email)
-
+st.write(st.session_state.df2.shape[0])
 st.write(st.session_state.df2)
 
 # Inputs
