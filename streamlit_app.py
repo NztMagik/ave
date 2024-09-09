@@ -13,7 +13,7 @@ if 'df2' not in st.session_state:
     st.session_state.df2 = conn.read(worksheet="Cotiza")
 
 # Prueba agarrar mail
-st.write(st.experimental_user)
+st.write(st.experimental_user.email)
 
 
 # Inputs
