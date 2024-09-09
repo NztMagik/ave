@@ -12,13 +12,8 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 if 'df2' not in st.session_state:
     st.session_state.df2 = conn.read(worksheet=st.experimental_user.email)
 
-# Prueba agarrar mail
-st.write(st.experimental_user.email)
-st.write(st.session_state.df2.shape[0] + 1)
-st.write(st.session_state.df2)
-
 # Inputs
-id = st.text_input('id')
+id = st.session_state.df2.shape[0] + 1
 nombre = st.text_input('nombre')
 producto = st.text_input('producto')
 precio = st.text_input('precio')
