@@ -42,6 +42,7 @@ else:
     # Boton para mandar datos
     if st.button("mandar"):
         nuevos_datos.append(subir_datos)
+        st.write(nuevos_datos)
 
         try:
             # Concatenar los nuevos datos con df2
