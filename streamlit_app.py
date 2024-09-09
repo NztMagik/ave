@@ -10,7 +10,7 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 
 # Initialize session state
 if 'df2' not in st.session_state:
-    st.session_state.df2 = conn.read(worksheet="Cotiza")
+    st.session_state.df2 = conn.read(worksheet=st.experimental_user.email)
 
 # Prueba agarrar mail
 st.write(st.experimental_user.email)
@@ -45,7 +45,7 @@ else:
         try:
             # Concatenar los nuevos datos con df2
             st.session_state.df2 = pd.concat([st.session_state.df2] + nuevos_datos, ignore_index=True)
-            conn.update(worksheet="Cotiza", data=st.session_state.df2)
+            conn.update(worksheet=st.experimental_user.email, data=st.session_state.df2)
             st.success("Worksheet Updated ")
         except Exception as e:
             st.error("Error al subir datos: " + str(e))
