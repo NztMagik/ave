@@ -12,6 +12,10 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 if 'df2' not in st.session_state:
     st.session_state.df2 = conn.read(worksheet="Cotiza")
 
+# Prueba agarrar mail
+st.write(st.experimental_user.email)
+
+
 # Inputs
 id = st.text_input('id')
 nombre = st.text_input('nombre')
