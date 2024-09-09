@@ -1,14 +1,12 @@
 # streamlit_app.py
-
 import streamlit as st
 import pandas as pd
 from streamlit_gsheets import GSheetsConnection
 
-# Create a connection object.
+# Crear el objeto de conexion.
 conn = st.connection("gsheets", type=GSheetsConnection)
-#df1 = conn.read(worksheet="Productos")
 
-# Initialize session state
+# Crea una sesion de estado del df
 if 'df2' not in st.session_state:
     st.session_state.df2 = conn.read(worksheet=st.experimental_user.email)
 
@@ -37,7 +35,6 @@ else:
     # Boton para mandar datos
     if st.button("mandar"):
         nuevos_datos.append(subir_datos)
-        st.write(nuevos_datos)
 
         try:
             # Concatenar los nuevos datos con df2
